@@ -38,6 +38,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.res.Configuration;
+import android.hardware.Camera;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 import android.net.wifi.WifiManager;
@@ -95,9 +96,15 @@ import java.io.File;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import org.firstinspires.ftc.robotcontroller.internal.RobotMountedCameraSystemThatTakesPicturesOfThings;
+
 public class FtcRobotControllerActivity extends Activity {
 
   public static final String TAG = "RCActivity";
+
+  // EXPERIMENTAL //
+  public final Camera c = null;
+  // EXPERIMENTAL //
 
   private static final int REQUEST_CONFIG_WIFI_CHANNEL = 1;
   private static final boolean USE_DEVICE_EMULATION = false;
@@ -134,6 +141,9 @@ public class FtcRobotControllerActivity extends Activity {
   protected FtcEventLoop eventLoop;
   protected Queue<UsbDevice> receivedUsbAttachmentNotifications;
 
+  protected Camera SuperCoolRoboticCameraThingyThat = null;
+
+  // Restarts robot //
   protected class RobotRestarter implements Restarter {
 
     public void requestRestart() {
@@ -142,13 +152,16 @@ public class FtcRobotControllerActivity extends Activity {
 
   }
 
+  // Adds "IBinder service" //
   protected ServiceConnection connection = new ServiceConnection() {
+    // You used to call me on my binder //
     @Override
     public void onServiceConnected(ComponentName name, IBinder service) {
       FtcRobotControllerBinder binder = (FtcRobotControllerBinder) service;
       onServiceBind(binder.getService());
     }
 
+    // Late night when you need my service //
     @Override
     public void onServiceDisconnected(ComponentName name) {
       RobotLog.vv(FtcRobotControllerService.TAG, "%s.controllerService=null", TAG);
@@ -165,7 +178,7 @@ public class FtcRobotControllerActivity extends Activity {
       if (usbDevice != null) {  // paranoia
         // We might get attachment notifications before the event loop is set up, so
         // we hold on to them and pass them along only when we're good and ready.
-        if (receivedUsbAttachmentNotifications != null) { // *total* paranoia
+        if (receivedUsbAttachmentNotifications != null) { // PARANOIA INTENSIFIES
           receivedUsbAttachmentNotifications.add(usbDevice);
           passReceivedUsbAttachmentsToEventLoop();
         }
