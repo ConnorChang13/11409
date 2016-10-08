@@ -93,8 +93,8 @@ public class Simple extends OpMode {
         float ly = gamepad1.left_stick_y;
         float ry = gamepad1.right_stick_y;
 
-        double left = (double) ly * .5;
-        double right = (double) ry * .5;
+        double left = (double) ly * .78;
+        double right = (double) ry * .75;
 
         dobot.ld.setPower(left);
         dobot.rd.setPower(right);

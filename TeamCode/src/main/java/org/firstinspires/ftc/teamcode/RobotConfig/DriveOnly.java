@@ -5,9 +5,14 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-/**
- * Created by ckc on 10/8/2016.
+/*
+
+COMPLIANT WITH:
+
+simple
+
  */
+
 public class DriveOnly {
 
     // DEFINITIONS //
@@ -31,6 +36,9 @@ public class DriveOnly {
 
         ld.setPower(0);
         rd.setPower(0);
+
+        ld.setDirection(DcMotorSimple.Direction.FORWARD);
+        rd.setDirection(DcMotorSimple.Direction.REVERSE);
 
     }
 
