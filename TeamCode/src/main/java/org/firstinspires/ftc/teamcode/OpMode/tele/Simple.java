@@ -30,20 +30,19 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
 TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.opmode.tele;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.RobotConfig.DriveOnly;
-import org.firstinspires.ftc.teamcode.RobotConfig.ForkliftConfig;
 
-@TeleOp(name="Forklift I", group="I")
-public class Forklift extends OpMode {
+@TeleOp(name="Simple I", group="I")
+public class Simple extends OpMode {
 
     int x = 1;
 
-    ForkliftConfig dobot = new ForkliftConfig();
+    DriveOnly dobot = new DriveOnly();
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -89,28 +88,12 @@ public class Forklift extends OpMode {
 
         float ly = gamepad1.left_stick_y;
         float ry = gamepad1.right_stick_y;
-        boolean a = gamepad1.a;
-        boolean b = gamepad1.b;
-        boolean up = false;
 
         double left = (double) ly * .78;
         double right = (double) ry * .75;
 
         dobot.ld.setPower(left);
         dobot.rd.setPower(right);
-
-        if(a) {
-            dobot.fl.setPower(.5);
-            telemetry.addData("FORKLIFT", "UP");
-        }
-        else if(b) {
-            dobot.fl.setPower(-.5);
-            telemetry.addData("FORKLIFT", "DOWN");
-        }
-        else if(!a&&!b) {
-            dobot.fl.setPower(0);
-            telemetry.addData("FORKLIFT", "STATIONARY");
-        }
 
     }
 

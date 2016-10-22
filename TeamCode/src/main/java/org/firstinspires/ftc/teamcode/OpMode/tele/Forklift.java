@@ -30,85 +30,47 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
 TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.opmode.tele;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.util.ElapsedTime;
-import org.firstinspires.ftc.teamcode.RobotConfig.DriveOnly;
+import org.firstinspires.ftc.teamcode.RobotConfig.ForkliftConfig;
 
-@TeleOp(name="Simple I", group="I")
-public class Simple extends OpMode {
-
-    int x = 1;
-
-    DriveOnly dobot = new DriveOnly();
-
-    /*
-     * Code to run ONCE when the driver hits INIT
-     */
+@TeleOp(name="Forklift I", group="I")
+public class Forklift extends OpMode {
+    ForkliftConfig dobot = new ForkliftConfig();
     @Override
     public void init() {
-
         telemetry.addData("Status", "Initialized");
         dobot.init(hardwareMap);
-
     }
-
-    /*
-     * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
-     */
     @Override
-    public void init_loop() {
-
-        if(x%2==1) {
-
-            telemetry.addData("GO", "NOW");
-
-        }
-        else {
-
-            telemetry.addData("go", "now");
-
-        }
-
-    }
-
-    /*
-     * Code to run ONCE when the driver hits PLAY
-     */
+    public void init_loop() {/*NONE*/}
     @Override
-    public void start() { }
-
-    /*
-     * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
-     */
+    public void start() {/*NONE*/}
     @Override
     public void loop() {
-
         float ly = gamepad1.left_stick_y;
         float ry = gamepad1.right_stick_y;
-
-        double left = (double) ly * .78;
+        boolean a = gamepad1.a;
+        boolean b = gamepad1.b;
+        double left = (double) ly * .75;
         double right = (double) ry * .75;
-
         dobot.ld.setPower(left);
         dobot.rd.setPower(right);
-
+        if(a) {
+            dobot.fl.setPower(.5);
+            telemetry.addData("FORKLIFT", "UP");
+        }
+        else if(b) {
+            dobot.fl.setPower(-.5);
+            telemetry.addData("FORKLIFT", "DOWN");
+        }
+        else if(!a&&!b) {
+            dobot.fl.setPower(0);
+            telemetry.addData("FORKLIFT", "STATIONARY");
+        }
     }
-
-    /*
-     * Code to run ONCE after the driver hits STOP
-     */
     @Override
-    public void stop() {
-
-        telemetry.addData("good", "bye");
-
-    }
-
+    public void stop() {/*NONE*/}
 }
