@@ -1,23 +1,25 @@
 package org.firstinspires.ftc.robotcontroller.internal;
 
-import android.graphics.Picture;
-import android.graphics.drawable.PictureDrawable;
 import android.hardware.Camera;
 import android.util.Log;
-import android.webkit.WebView;
+import android.view.SurfaceHolder;
+
+import java.io.IOException;
 
 public class RobotMountedCameraSystemThatTakesPicturesOfThings {
+
+    public static SurfaceHolder sh = null;
 
     public static void cOpen(Camera cam) {
 
         cam = Camera.open(0);
         Log.i("C3", "Camera is open");
-
+        try { cam.setPreviewDisplay(sh); } catch(IOException e) {}
     }
 
-    public static void cPicture(Camera cam, Camera.ShutterCallback shut, Camera.PictureCallback pict1, Camera.PictureCallback pict2) {
+    public static void cPicture(Camera cam) {
 
-        cam.takePicture(shut, pict1, pict2);
+        cam.takePicture(null, null, null);
         Log.i("C3", "Camera took a picture");
 
     }

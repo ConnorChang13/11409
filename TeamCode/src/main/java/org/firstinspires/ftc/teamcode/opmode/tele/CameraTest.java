@@ -2,17 +2,18 @@ package org.firstinspires.ftc.teamcode.opmode.tele;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-
+import java.io.IOException;
 import android.hardware.Camera;
 import org.firstinspires.ftc.robotcontroller.internal.RobotMountedCameraSystemThatTakesPicturesOfThings;
 
-@TeleOp(name="cTest", group="none")
+@TeleOp(name="cTest", group="I")
 public class CameraTest extends OpMode {
 
     public Camera c = null;
 
     @Override
     public void init() {
+
 
         RobotMountedCameraSystemThatTakesPicturesOfThings.cOpen(c);
 
@@ -33,7 +34,7 @@ public class CameraTest extends OpMode {
 
         if(gamepad1.a) {
 
-            RobotMountedCameraSystemThatTakesPicturesOfThings.cPicture(c, null, null, null);
+            RobotMountedCameraSystemThatTakesPicturesOfThings.cPicture(c);
 
         }
 
