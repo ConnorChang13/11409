@@ -30,12 +30,16 @@ public class Bumper extends OpMode {
 
         if(gamepad1.right_trigger >= 0.75) {
 
+            //up
+
             dobot.bu.setPower(1);
 
         }
         else if(gamepad1.left_trigger >= 0.75) {
 
-            dobot.bu.setPower(-1);
+            //down
+
+            dobot.bu.setPower(-0.75);
 
         }
         else {

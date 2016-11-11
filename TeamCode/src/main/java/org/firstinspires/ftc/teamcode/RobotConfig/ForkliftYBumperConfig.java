@@ -15,7 +15,6 @@ public class ForkliftYBumperConfig {
     public DcMotor fl = null;
 
     HardwareMap hm = null;
-    private ElapsedTime e = new ElapsedTime();
 
     // CONSTRUCTOR //
 
@@ -23,33 +22,22 @@ public class ForkliftYBumperConfig {
 
     public void init(HardwareMap hm) {
 
-        // FINDING THE MOTORS //
-
-        ld = hm.dcMotor.get("leftDrive");
-        rd = hm.dcMotor.get("rightDrive");
-        fl = hm.dcMotor.get("forkLift");
-        bu = hm.dcMotor.get("bumper");
-
-        ld.setPower(0);
-        rd.setPower(0);
-        fl.setPower(0);
-        bu.setPower(0);
-
-        ld.setDirection(DcMotorSimple.Direction.FORWARD);
-        rd.setDirection(DcMotorSimple.Direction.REVERSE);
-        fl.setDirection(DcMotorSimple.Direction.FORWARD);
-        bu.setDirection(DcMotorSimple.Direction.FORWARD);
+        ld = hm.dcMotor.get("leftDrive");ld.setPower(0);ld.setDirection(DcMotorSimple.Direction.FORWARD);
+        rd = hm.dcMotor.get("rightDrive");rd.setPower(0);rd.setDirection(DcMotorSimple.Direction.REVERSE);
+        fl = hm.dcMotor.get("forkLift");fl.setPower(0);fl.setDirection(DcMotorSimple.Direction.FORWARD);
+        bu = hm.dcMotor.get("bumper");bu.setPower(0);bu.setDirection(DcMotorSimple.Direction.FORWARD);
 
     }
 
     public void bUp(DcMotor bumper) {
 
         bumper.setPower(1);
-        try {
+        try{
+
             Thread.sleep(400);
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
-        }
+
+        }catch(InterruptedException e1){e1.printStackTrace();}
+
         bumper.setPower(0);
 
     }
