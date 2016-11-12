@@ -34,7 +34,7 @@ package org.firstinspires.ftc.teamcode.opmode.tele;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import org.firstinspires.ftc.teamcode.RobotConfig.ForkliftConfig;
+import org.firstinspires.ftc.teamcode.config.ForkliftConfig;
 
 @TeleOp(name="Forklift I", group="I")
 public class Forklift extends OpMode {

@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode.opmode.tele;
 
 import com.qualcomm.robotcore.eventloop.opmode.*;
 
-import org.firstinspires.ftc.teamcode.RobotConfig.*;
+import org.firstinspires.ftc.teamcode.config.*;
 
 @TeleOp(name = "Bumper", group = "b")
 public class Bumper extends OpMode {

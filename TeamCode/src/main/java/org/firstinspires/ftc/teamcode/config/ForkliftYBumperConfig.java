@@ -1,23 +1,16 @@
-package org.firstinspires.ftc.teamcode.RobotConfig;
+package org.firstinspires.ftc.teamcode.config;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class ForkliftYBumperConfig {
-
-    // DEFINITIONS //
 
     public DcMotor ld = null;
     public DcMotor rd = null;
     public DcMotor bu = null;
     public DcMotor fl = null;
-
     HardwareMap hm = null;
-
-    // CONSTRUCTOR //
-
     public ForkliftYBumperConfig() { }
 
     public void init(HardwareMap hm) {

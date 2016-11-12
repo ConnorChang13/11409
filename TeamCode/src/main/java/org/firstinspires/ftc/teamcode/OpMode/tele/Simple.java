@@ -35,7 +35,7 @@ package org.firstinspires.ftc.teamcode.opmode.tele;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.RobotConfig.DriveOnly;
+import org.firstinspires.ftc.teamcode.config.DriveOnly;
 
 @TeleOp(name="Simple I", group="I")
 public class Simple extends OpMode {

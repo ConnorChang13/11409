@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.RobotConfig;
+package org.firstinspires.ftc.teamcode.config;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -11,28 +11,21 @@ COMPLIANT WITH:
 
 simple
 
-USED FOR:
-
-Forklift
-Basic Drive
-
  */
 
-public class ForkliftConfig {
+public class DriveOnly {
 
     // DEFINITIONS //
 
     public DcMotor ld = null;
     public DcMotor rd = null;
 
-    public DcMotor fl = null;
-
     HardwareMap hm = null;
     private ElapsedTime e = new ElapsedTime();
 
     // CONSTRUCTOR //
 
-    public ForkliftConfig() { }
+    public DriveOnly() { }
 
     public void init(HardwareMap hm) {
 
@@ -40,15 +33,12 @@ public class ForkliftConfig {
 
         ld = hm.dcMotor.get("leftDrive");
         rd = hm.dcMotor.get("rightDrive");
-        fl = hm.dcMotor.get("forkLift");
 
         ld.setPower(0);
         rd.setPower(0);
-        fl.setPower(0);
 
         ld.setDirection(DcMotorSimple.Direction.FORWARD);
         rd.setDirection(DcMotorSimple.Direction.REVERSE);
-        fl.setDirection(DcMotorSimple.Direction.FORWARD);
 
     }
 
