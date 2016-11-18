@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.*;
 
 import org.firstinspires.ftc.teamcode.config.*;
 
-@TeleOp(name = "Bumper", group = "b")
+@TeleOp(name = "Bumper", group = "Specific")
 public class Bumper extends OpMode {
 
     ForkliftYBumperConfig dobot = new ForkliftYBumperConfig();

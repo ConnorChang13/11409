@@ -6,7 +6,7 @@ import java.io.IOException;
 import android.hardware.Camera;
 import org.firstinspires.ftc.robotcontroller.internal.RobotMountedCameraSystemThatTakesPicturesOfThings;
 
-@TeleOp(name="cTest", group="I")
+@TeleOp(name="cTest", group="Specific")
 public class CameraTest extends OpMode {
 
     public Camera c = null;

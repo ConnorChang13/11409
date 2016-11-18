@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.*;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.config.RC111216;
 
-@TeleOp(name = "TO111216", group = "111216")
+@TeleOp(name = "TO111216", group = "General")
 public class TO111216 extends OpMode {
 
     RC111216 dobot = new RC111216();
