@@ -96,15 +96,9 @@ import java.io.File;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import org.firstinspires.ftc.robotcontroller.internal.RobotMountedCameraSystemThatTakesPicturesOfThings;
-
 public class FtcRobotControllerActivity extends Activity {
 
   public static final String TAG = "RCActivity";
-
-  // EXPERIMENTAL //
-  public final Camera c = null;
-  // EXPERIMENTAL //
 
   private static final int REQUEST_CONFIG_WIFI_CHANNEL = 1;
   private static final boolean USE_DEVICE_EMULATION = false;
