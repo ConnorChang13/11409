@@ -25,7 +25,7 @@ public class Nov19c {
     public void init(HardwareMap hm) {
 
         ld = hm.dcMotor.get("leftDrive");ld.setPower(0);ld.setDirection(DcMotorSimple.Direction.FORWARD);
-        rd = hm.dcMotor.get("rightDrive");rd.setPower(0);ld.setDirection(DcMotorSimple.Direction.FORWARD);
+        rd = hm.dcMotor.get("rightDrive");rd.setPower(0);ld.setDirection(DcMotorSimple.Direction.REVERSE);
         f1 = hm.dcMotor.get("forkOne");f1.setPower(0);ld.setDirection(DcMotorSimple.Direction.FORWARD);
         f2 = hm.dcMotor.get("forkTwo");f2.setPower(0);ld.setDirection(DcMotorSimple.Direction.FORWARD);
         c1 = hm.dcMotor.get("cannonOneA");c1.setPower(0);ld.setDirection(DcMotorSimple.Direction.FORWARD);

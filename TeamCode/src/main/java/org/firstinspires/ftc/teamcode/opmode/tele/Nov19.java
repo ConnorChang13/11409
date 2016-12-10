@@ -41,8 +41,13 @@ public class Nov19 extends OpMode {
             }
 
         }
+        else {
 
-        dobot.bu.setPosition(0);
+            Nov19c.cPower(0);
+
+        }
+
+        dobot.bu.setPosition(gamepad2.right_trigger);
 
     }
 
